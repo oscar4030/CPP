@@ -3,13 +3,19 @@ using namespace std;
 
 class Team {
     int size;
+	string *a;
 public:
-    Team(int team) { size = team; }
-    int team() { return size; }
-    void setName(int team) { size = team; }
-    void show() { cout << "저희팀에는 " << team << "로" << size <<"이 있습니다"<<endl; }
+	Team() { }
+	Team(int size) { this->size = size;a = new string[size];
+	}
+	void setName() 
+	{
+		for (int i = 0; i < size; i++) { cin >> a[i]; }
+	}
+	void show() { for (int i = 0; i < size; i++)
+	{ cout << "저희팀에는 " << a[i] << "로" << size << "이 있습니다" << endl; } 
+	}
 };
-}
 int main()
 {
 	int size;
@@ -18,6 +24,6 @@ int main()
 	cin >> size;
 	Team team(size);
 
-	team.setNames();
+	team.setName();
 	team.show();
 }
